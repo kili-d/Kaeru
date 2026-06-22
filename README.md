@@ -1,6 +1,6 @@
 # Kaeru
 
-Kaeru is a calm, minimal Kanban + Pomodoro app for a quiet personal workflow. It is being refactored toward a production-ready, self-hosted VPS deployment while preserving the current Zen-inspired interface.
+Kaeru is a calm, minimal Kanban + Pomodoro app for a quiet personal workflow, letting you organize tasks and focus sessions in a Zen-inspired interface.
 
 ## Current Status
 
@@ -174,18 +174,3 @@ Before production use:
 - Back up the SQLite database regularly.
 - Disable public registration unless you explicitly need it.
 - Keep the VPS and dependencies updated.
-
-## Production Roadmap
-
-1. Phase 1: codebase audit and low-risk cleanup.
-2. Phase 2: SQLite persistence with migrations.
-3. Phase 3: session-based authentication and first-run admin setup.
-4. Phase 4: TOTP setup, recovery codes, and stronger account management.
-5. Phase 5: audit events and permission checks.
-6. Phase 6: agent-ready action layer for future MCP/integrations.
-7. Phase 7: VPS deployment docs, reverse proxy guidance, backups, and upgrade steps.
-8. Phase 8: Docker and install script.
-
-## Future Agent/MCP Direction
-
-Kaeru should eventually expose explicit, permission-checked actions such as creating cards, moving cards, starting Pomodoros, completing Pomodoros, searching cards, and summarizing board state. Future agents or MCP tools should call those actions through the service/API layer, not write directly to the database.
