@@ -1,0 +1,22 @@
+services:
+  kaeru:
+    image: "${KAERU_IMAGE:-kaeru:latest}"
+    restart: unless-stopped
+    ports:
+      - "${KAERU_PORT:-5173}:5173"
+    environment:
+      NODE_ENV: production
+      APP_URL: "${APP_URL:-http://127.0.0.1:5173}"
+      HOST: 0.0.0.0
+      PORT: 5173
+      DATABASE_URL: file:/data/kaeru.sqlite
+      SESSION_SECRET: "${SESSION_SECRET:-change-me-before-production}"
+      KAERU_SETUP_TOKEN: "${KAERU_SETUP_TOKEN:-}"
+      ALLOW_REGISTRATION: "${ALLOW_REGISTRATION:-false}"
+      ENABLE_TOTP: "${ENABLE_TOTP:-false}"
+      LOG_LEVEL: "${LOG_LEVEL:-info}"
+    volumes:
+      - kaeru-data:/data
+
+volumes:
+  kaeru-data:
